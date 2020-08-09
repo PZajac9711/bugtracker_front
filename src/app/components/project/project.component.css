@@ -1,0 +1,31 @@
+.left-panel {
+  min-height: 100%;
+  padding: 15px 50px;
+  background: #303030;
+  color: #E4DBDB;
+}
+.project-logo > img{
+  border-radius: 50%;
+  width:100%;
+}
+.project-name{
+  display: flex;
+  align-items: center;
+}
+.left-menu{
+  margin-top: 35px;
+  list-style-type: none;
+}
+.left-menu > li{
+  margin-bottom: 10px;
+}
+a{
+  text-decoration: none;
+  color: #E4DBDB;
+  font-size: 20px;
+}
+.right-panel{
+  padding: 20px;
+  background-color: rgba(0,0,0,0.1);
+}
+
