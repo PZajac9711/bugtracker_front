@@ -205,6 +205,86 @@ img{
 }
 /*End*/
 
+
+/*Contact section*/
+#contact .contact{
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#contact .contact-top{
+  margin-bottom: 55px;
+}
+#contact .contact-items{
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#contact .contact-item{
+  width: 80%;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 18px 0 #0000002c;
+  transition: .3s ease box-shadow;
+}
+#contact .contact-item:hover{
+  box-shadow: 0 0 5px 0 #0000002c;
+}
+#contact .icon{
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px;
+}
+#contact .contact-info h1{
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+#contact .contact-info h2{
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+/*End*/
+
+/*footer*/
+#footer{
+  background-image: linear-gradient(90deg,#020024, #3e3e49,#15454f);
+  color: #FFFFFF;
+}
+#footer .footer{
+  width: 100%;
+  min-height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+#footer .section-title{
+  margin-top: 100px;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  font-size: 2.3rem;
+}
+#footer .additional-text h2{
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+#footer .links{
+  display: flex;
+  margin-bottom: 50px;
+}
+#footer .links img{
+  padding: 10px;
+}
+/*End*/
 /*Key frames*/
 @keyframes text_reveal_box {
   50% {
@@ -219,6 +299,30 @@ img{
 @keyframes text_reveal {
   100%{
     color: white;
+  }
+}
+/*End*/
+
+/*Media query tablet*/
+@media only screen and (min-width: 768px){
+  #offer .offer-bot .offer-item{
+    flex-basis: 45%;
+    margin: 2.5%;
+  }
+
+  #contact .contact{
+    min-height: 350px;
+    margin-bottom: 100px;
+  }
+
+  #contact .contact-items{
+    flex-direction: row;
+  }
+  #contact .contact-items{
+    width: 800px;
+  }
+  #contact .contact-item{
+    margin: 10px;
   }
 }
 /*End*/
