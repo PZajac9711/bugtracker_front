@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {BoardComponent} from '../board/board.component';
+import {AuthenticationComponent} from '../authentication/authentication.component';
+
 
 @Component({
   selector: 'app-main',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
   }
 
+  constructor(public dialog: MatDialog) {
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AuthenticationComponent, {
+      data: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
 }
