@@ -53,6 +53,40 @@ img{
   color: white;
   background-color: crimson;
 }
+/*Temporary navbar*/
+#hero .nav-bar{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 120px;
+}
+#hero .nav-bar h2{
+  color: #FFFFFF;
+  padding: 5px;
+  margin: 10px;
+}
+#hero .nav-bar h2 span{
+  color: crimson;
+}
+#hero .nav-bar ul{
+  display: flex;
+  list-style-type: none;
+}
+#hero .nav-bar ul li{
+  padding: 10px;
+  margin: 10px;
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  text-align: center;
+}
+#hero .nav-bar ul li a{
+  color: #FFFFFF;
+  transition: .3s ease color;
+}
+#hero .nav-bar ul li a:hover{
+  color: crimson;
+}
+/*END*/
 /*Hero*/
 #hero{
   background-image: url("../../../assets/images/hero.jpg");
@@ -283,6 +317,9 @@ img{
 }
 #footer .links img{
   padding: 10px;
+}
+#footer .footer p{
+  font-size: 10px;
 }
 /*End*/
 /*Key frames*/
