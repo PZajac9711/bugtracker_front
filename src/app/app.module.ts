@@ -10,7 +10,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 
@@ -22,16 +22,17 @@ import {MatInputModule} from '@angular/material/input';
     ProjectComponent,
     AuthenticationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [AuthenticationComponent],

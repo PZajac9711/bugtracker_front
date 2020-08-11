@@ -1,6 +1,45 @@
-<div id="test">
-<p>asd</p>
-<p>asd</p>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="isGood" cdkFocusInitial>Ok</button>
+<div id="content">
+  <div class="top-register">
+    <div><h1>Create an account</h1></div>
+    <div><h2>Welcome! Register for an account</h2></div>
+  </div>
+  <div class="register-section">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="emailFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Login</mat-label>
+        <input matInput [formControl]="loginFormControl">
+        <mat-error *ngIf="loginFormControl.hasError('required')">
+          Login is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput [formControl]="passwordFormControl">
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Re-password</mat-label>
+        <input matInput [formControl]="rePasswordFormControl">
+        <mat-error *ngIf="rePasswordFormControl.hasError('required')">
+          Re-password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </div>
+</div>
+<div class="bot-section">
+  <h3>Already a member ?</h3><button mat-stroked-button color="primary">Sign In</button>
 </div>
