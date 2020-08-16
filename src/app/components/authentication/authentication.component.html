@@ -52,10 +52,41 @@
   </div>
   <div class="bot-section">
     <h3>Already a member ?</h3>
-    <button mat-stroked-button color="primary" (click)="alreadyGotAccount = true">Sign In</button>
+    <button mat-stroked-button color="primary" (click)="switchView()">Sign In</button>
   </div>
 </section>
 
 <section *ngIf="alreadyGotAccount" id="sign-in">
-  <p>asd</p>
+  <div id="holder">
+    <div class="top-sing">
+      <h1>Member Login</h1>
+      <h2>Welcome Back!</h2>
+      <p style="color: green;">{{afterRegistration}}</p>
+      <p style="color: red;"></p>
+    </div>
+    <div class="login-section">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Login</mat-label>
+          <input matInput [formControl]="loginSignInFormControl">
+          <mat-error *ngIf="loginSignInFormControl.hasError('required')">
+            Login can't be empty
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [formControl]="passwordSignInFormControl">
+          <mat-error *ngIf="passwordSignInFormControl.hasError('required')">
+            Password can't be empty
+          </mat-error>
+        </mat-form-field>
+        <button [disabled]="formIsValidLoginButton()" type="submit" mat-raised-button color="primary">Login</button>
+        <p style="text-align: center; color: blue; margin-top: 15px;"><a type="button" >Forgot password ?</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="bot-section">
+    <h3>New here ? </h3>
+    <button mat-stroked-button color="primary" (click)="switchView()">Sign Up</button>
+  </div>
 </section>

@@ -1,28 +1,58 @@
-.task{
-  background-color: #FFFFFF;
-  margin: 0;
-  border-bottom: solid 1px rgba(0,0,0,0.1);
-  padding: 15px;
-  word-wrap: break-word;
-  transition: 0.3s;
-}
-.task:hover{
-  background-color: rgba(0,0,0,0.2);
-}
-header{
-  height:80px;
-  background-image: url("https://wallpaperaccess.com/full/1251284.jpg");
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-  position: relative;
+#welcome-board{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 40%;
+  margin: 40px auto;
 }
-header h2{
-  color: #FFFFFF;
+#welcome-board .title{
+  display: flex;
 }
-.my-board{
+#welcome-board .title h5{
+  padding: 2px;
+}
+#welcome-board .my-boards{
+  padding: 10px;
+}
+#welcome-board .items{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#welcome-board .items .item{
+  width: 185px;
+  height: 105px;
+  padding: 10px;
+  background-image: url("../../../assets/images/example-board-bg.png");
+  background-size: cover;
+  background-position: center;
   margin: 10px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #FFFFFF;
+  transition: .5s ease;
+  z-index: 1;
 }
+#welcome-board .items .item:hover{
+  opacity: .6;
+}
+#welcome-board .items .item:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: .3;
+  background-color: black;
+  z-index: -1;
+}
+#welcome-board .items .item-new{
+  background-image: url("../../../assets/images/new-board.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-board .items .item:hover{
+  cursor: pointer;
+}
+

@@ -56,3 +56,33 @@
   padding: 10px;
   font-size: 1.5rem;
 }
+/*END*/
+#holder{
+  width: 450px;
+  display: flex;
+  height: 450px;
+  flex-direction: column;
+}
+#holder .top-sing{
+  text-align: center;
+}
+#holder .top-sing h1{
+  font-size: 2.5rem;
+  margin: 20px 0;
+}
+#holder .top-sing h2{
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.login-section{
+  width: 60%;
+  margin: 0 auto;
+}
+#holder mat-form-field{
+  margin-top: 5px;
+}
+#holder .login-section button{
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}

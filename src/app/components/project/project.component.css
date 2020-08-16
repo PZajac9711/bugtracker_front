@@ -1,31 +1,33 @@
-.left-panel {
-  min-height: 100%;
-  padding: 15px 50px;
-  background: #303030;
-  color: #E4DBDB;
+@import url('https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.project-logo > img{
-  border-radius: 50%;
-  width:100%;
+html{
+  font-family: 'Antic Slab', sans-serif;;
+  font-size: 12px;
 }
-.project-name{
+#board .board-container{
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  align-items: center;
 }
-.left-menu{
-  margin-top: 35px;
-  list-style-type: none;
+#board{
+  background-image: url("../../../assets/images/cat-3169476_1920.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
 }
-.left-menu > li{
-  margin-bottom: 10px;
+#board::after{
+  content: '';
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .6;
+  z-index: -1;
 }
-a{
-  text-decoration: none;
-  color: #E4DBDB;
-  font-size: 20px;
-}
-.right-panel{
-  padding: 20px;
-  background-color: rgba(0,0,0,0.1);
-}
-

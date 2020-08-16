@@ -1,0 +1,20 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #FFFFFF;
+}
+#navbar{
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #2b5876, #4e4376);
+  padding: 15px;
+}
+#navbar ul{
+  display: flex;
+  list-style: none;
+}
+#navbar ul li{
+  margin-right: 10px;
+  padding: 5px;
+}
