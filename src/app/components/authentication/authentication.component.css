@@ -12,7 +12,7 @@
 #content{
   width: 450px;
   display: flex;
-  height: 500px;
+  height: 550px;
   flex-direction: column;
 }
 #content .top-register{

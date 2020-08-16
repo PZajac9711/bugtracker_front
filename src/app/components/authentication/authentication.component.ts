@@ -1,7 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {ViewEncapsulation} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
@@ -10,36 +11,54 @@ import {FormControl, Validators} from '@angular/forms';
 })
 
 export class AuthenticationComponent implements OnInit {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  loginFormControl = new FormControl('', [
-    Validators.required,
-  ]);
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-  ]);
-  rePasswordFormControl = new FormControl('', [
-    Validators.required,
-  ]);
-  isGood = false;
 
   constructor(
     public dialogRef: MatDialogRef<AuthenticationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: boolean) {
   }
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  loginFormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+    Validators.pattern('^[a-zA-Z0-9]{1,}$')
+  ]);
+  passwordFormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+  ]);
+  rePasswordFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  alreadyGotAccount = false;
+  error = '';
+  message = '';
+
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   ngOnInit(): void {
-    this.isGood = this.data;
+    this.message = '';
+    this.error = '';
+    // przesylanie danych
+    this.alreadyGotAccount = this.data;
   }
 
   // tslint:disable-next-line:typedef
-  testMouseOver() {
-    document.getElementById('test').style.height = '500px';
+  formIsValidSubmitButton() {
+    if (this.emailFormControl.valid && this.loginFormControl.valid && this.passwordFormControl.valid && this.rePasswordFormControl.valid) {
+      return false;
+    }
+    return true;
+  }
+
+  // tslint:disable-next-line:typedef
+  createAccount() {
+    console.log('create account');
   }
 }
+

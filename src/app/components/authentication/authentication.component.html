@@ -1,45 +1,61 @@
-<div id="content">
-  <div class="top-register">
-    <div><h1>Create an account</h1></div>
-    <div><h2>Welcome! Register for an account</h2></div>
+<section id="sign-up" *ngIf="!alreadyGotAccount">
+  <div id="content">
+    <div class="top-register">
+      <div><h1>Create an account</h1></div>
+      <div><h2>Welcome! Register for an account</h2></div>
+      <mat-error>
+        {{error}}
+      </mat-error>
+    </div>
+    <div class="register-section">
+      <form class="example-form" (ngSubmit)="createAccount()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [formControl]="emailFormControl">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Login</mat-label>
+          <input matInput [formControl]="loginFormControl">
+          <mat-error *ngIf="loginFormControl.hasError('required')">
+            Login is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="loginFormControl.hasError('minlength')">
+            Login is too short
+          </mat-error>
+          <mat-error *ngIf="loginFormControl.hasError('pattern')">
+            Login can contains only letter and number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput [formControl]="passwordFormControl">
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Re-password</mat-label>
+          <input type="password" matInput [formControl]="rePasswordFormControl">
+          <mat-error *ngIf="rePasswordFormControl.hasError('required')">
+            Re-password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button [disabled]="formIsValidSubmitButton()" type="submit" mat-raised-button color="primary">Submit</button>
+      </form>
+    </div>
   </div>
-  <div class="register-section">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input matInput [formControl]="emailFormControl">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Login</mat-label>
-        <input matInput [formControl]="loginFormControl">
-        <mat-error *ngIf="loginFormControl.hasError('required')">
-          Login is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
-        <input matInput [formControl]="passwordFormControl">
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Re-password</mat-label>
-        <input matInput [formControl]="rePasswordFormControl">
-        <mat-error *ngIf="rePasswordFormControl.hasError('required')">
-          Re-password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-      <button mat-raised-button color="primary">Submit</button>
-    </form>
+  <div class="bot-section">
+    <h3>Already a member ?</h3>
+    <button mat-stroked-button color="primary" (click)="alreadyGotAccount = true">Sign In</button>
   </div>
-</div>
-<div class="bot-section">
-  <h3>Already a member ?</h3><button mat-stroked-button color="primary">Sign In</button>
-</div>
+</section>
+
+<section *ngIf="alreadyGotAccount" id="sign-in">
+  <p>asd</p>
+</section>

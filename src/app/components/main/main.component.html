@@ -7,7 +7,7 @@
         <li><a href="#">HOME</a></li>
         <li><a href="#">FUNCTIONS</a></li>
         <li><a href="#">CONTACT</a></li>
-        <li><a href="#">LOGIN</a></li>
+        <li><a type="button" (click)="openDialog(true)">LOGIN</a></li>
       </ul>
   </div>
   <!-- End temporary(need to be change)-->
@@ -16,7 +16,7 @@
       <h1>Stop Wasting<span></span></h1>
       <h1>Time And Plan<span></span></h1>
       <h1>Your work<span></span></h1>
-      <a type="button" class="my-btn" (click)="openDialog()">Join us<span></span></a>
+      <a type="button" class="my-btn" (click)="openDialog(false)">Join us<span></span></a>
     </div>
   </div>
 </section>

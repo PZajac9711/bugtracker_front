@@ -17,9 +17,9 @@ export class MainComponent implements OnInit {
   constructor(public dialog: MatDialog) {
   }
 
-  openDialog(): void {
+  openDialog(gotAccount): void {
     const dialogRef = this.dialog.open(AuthenticationComponent, {
-      data: false
+      data: gotAccount
     });
 
     dialogRef.afterClosed().subscribe(result => {
