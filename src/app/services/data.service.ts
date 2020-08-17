@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private url = 'http://localhost:8080/api/public';
+  private url = 'https://bugtrackerexa.herokuapp.com/api/public';
 
   constructor(private http: HttpClient) {
   }
