@@ -92,7 +92,7 @@ export class AuthenticationComponent implements OnInit {
       .subscribe(response => {
         this.response$ = response;
         if (response.status === 200){
-          localStorage.setItem('token', 'Bearer ' + this.response$.body.token);
+          localStorage.setItem('token', this.response$.body.token);
           this.dialogRef.close();
           this.route.navigate(['/boards']);
         }

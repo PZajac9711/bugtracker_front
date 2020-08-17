@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 export class MainComponent implements OnInit {
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') !== null){
+    if (localStorage.getItem('token') !== null) {
       this.route.navigate(['/boards']);
     }
   }

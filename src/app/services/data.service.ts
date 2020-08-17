@@ -5,7 +5,8 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  private url = 'https://bugtrackerexa.herokuapp.com/api/public';
+  private url = 'http://localhost:8080/api/public';
+  private urlWithToken = 'http://localhost:8080/api/private';
 
   constructor(private http: HttpClient) {
   }
@@ -25,5 +26,10 @@ export class DataService {
       login: userLogin,
       password: userPassword
     }, {observe: 'response'});
+  }
+
+  // tslint:disable-next-line:typedef
+  createNewBoard(boardName) {
+    return this.http.get(this.urlWithToken + '/createProject?boardName=' + boardName, {observe: 'response'});
   }
 }

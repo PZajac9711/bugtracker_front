@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
+import {AuthenticationComponent} from '../authentication/authentication.component';
+import {MatDialog} from '@angular/material/dialog';
+import {CreateBoardComponent} from '../create-board/create-board.component';
 
 @Component({
   selector: 'app-board',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  response$: any;
+
+  constructor(private dataService: DataService, public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CreateBoardComponent, {
+      // no data
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
 }
