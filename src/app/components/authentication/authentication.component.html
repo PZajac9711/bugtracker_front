@@ -62,10 +62,10 @@
       <h1>Member Login</h1>
       <h2>Welcome Back!</h2>
       <p style="color: green;">{{afterRegistration}}</p>
-      <p style="color: red;"></p>
+      <p style="color: red;">{{error}}</p>
     </div>
     <div class="login-section">
-      <form class="example-form">
+      <form class="example-form" (ngSubmit)="login()">
         <mat-form-field class="example-full-width">
           <mat-label>Login</mat-label>
           <input matInput [formControl]="loginSignInFormControl">
@@ -75,7 +75,7 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Password</mat-label>
-          <input matInput [formControl]="passwordSignInFormControl">
+          <input type="password" matInput [formControl]="passwordSignInFormControl">
           <mat-error *ngIf="passwordSignInFormControl.hasError('required')">
             Password can't be empty
           </mat-error>

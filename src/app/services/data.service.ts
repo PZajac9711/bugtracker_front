@@ -18,4 +18,12 @@ export class DataService {
       email: userEmail
     }, {observe: 'response'});
   }
+
+  // tslint:disable-next-line:typedef
+  loginUser(userLogin, userPassword) {
+    return this.http.post(this.url + '/authenticate', {
+      login: userLogin,
+      password: userPassword
+    }, {observe: 'response'});
+  }
 }

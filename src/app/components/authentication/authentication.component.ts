@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {ViewEncapsulation} from '@angular/core';
 import {AbstractControl, FormControl, Validators} from '@angular/forms';
 import {DataService} from '../../services/data.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -15,7 +16,7 @@ export class AuthenticationComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AuthenticationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: boolean, private dataService: DataService) {
+    @Inject(MAT_DIALOG_DATA) public data: boolean, private dataService: DataService, private route: Router) {
   }
 
   emailFormControl = new FormControl('', [
@@ -44,6 +45,8 @@ export class AuthenticationComponent implements OnInit {
   error = '';
   message = '';
   afterRegistration = '';
+
+  response$: any;
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -83,6 +86,20 @@ export class AuthenticationComponent implements OnInit {
       });
   }
 
+  // tslint:disable-next-line:typedef
+  login() {
+    this.dataService.loginUser(this.loginSignInFormControl.value, this.passwordSignInFormControl.value)
+      .subscribe(response => {
+        this.response$ = response;
+        if (response.status === 200){
+          localStorage.setItem('token', 'Bearer ' + this.response$.body.token);
+          this.dialogRef.close();
+          this.route.navigate(['/boards']);
+        }
+      }, err => {
+        this.error = err.error.debugMessage;
+      });
+  }
   // tslint:disable-next-line:typedef
   switchView() {
     this.alreadyGotAccount = !this.alreadyGotAccount;
