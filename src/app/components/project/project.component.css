@@ -8,26 +8,62 @@ html{
   font-family: 'Antic Slab', sans-serif;;
   font-size: 12px;
 }
-#board .board-container{
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-}
-#board{
-  background-image: url("../../../assets/images/cat-3169476_1920.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 1;
-}
-#board::after{
-  content: '';
+.single-board{
+  margin-top: 20px;
+  margin-left: 15px;
+  width: 240px;
+  background-color: #EBECF0;
+  z-index: 1000;
+  border-radius: 10px;
+  padding: 10px;
+  color: #52617B;
   position: absolute;
-  top:0;
+  top: 80px;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
+}
+.top{
+  display: flex;
+  justify-content: space-between;
+}
+.single-board .tasks{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.single-board .tasks .task{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin: 5px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  transition: .5s ease;
+  font-size: 13px;
+}
+.single-board .tasks .task:hover{
   opacity: .6;
-  z-index: -1;
+  color: blue;
+  cursor: pointer;
+}
+.single-board .new-task{
+  padding: 8px;
+  margin: 5px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  transition: .5s ease;
+  font-size: 13px;
+  text-align: center;
+}
+.single-board .new-task:hover{
+  opacity: .6;
+  color: blue;
+}
+.in-progress{
+  left: 265px;
+}
+.check-me{
+  left: 530px;
+}
+.done{
+  left: 800px;
 }

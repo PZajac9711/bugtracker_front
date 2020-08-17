@@ -5,6 +5,7 @@
   color: #FFFFFF;
 }
 #navbar{
+  min-width: 1200px;
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to right, #2b5876, #4e4376);

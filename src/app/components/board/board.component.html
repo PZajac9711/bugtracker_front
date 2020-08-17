@@ -6,14 +6,8 @@
       <div class="text"><h5>Project Boards</h5></div>
     </div>
     <div class="items">
-      <div class="item">
-        <h6>board name</h6>
-      </div>
-      <div class="item">
-        <h6>board name</h6>
-      </div>
-      <div class="item">
-        <h6>board name</h6>
+      <div class="item" (click)="goToProject(item.projectName)" *ngFor="let item of boardList$">
+        <h6>{{item.projectName}}</h6>
       </div>
       <div class="item-new item" (click)="openDialog()">
         <h6>create new board</h6>

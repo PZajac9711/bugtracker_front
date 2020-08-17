@@ -17,24 +17,31 @@ export class CreateBoardComponent implements OnInit {
     Validators.required,
     Validators.minLength(3)
   ]);
+
   constructor(
     public dialogRef: MatDialogRef<CreateBoardComponent>, private dataService: DataService, private route: Router) {
   }
+
   ngOnInit(): void {
   }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
+
   // tslint:disable-next-line:typedef
   createBoard() {
     this.dataService.createNewBoard(this.nameFormControl.value).subscribe(response => {
+      this.route.navigate(['/project', this.nameFormControl.value]);
+      this.dialogRef.close();
       console.log(response);
     }, err => {
       this.error = err.error.debugMessage;
     });
   }
+
   // tslint:disable-next-line:typedef
-  disableButton(){
+  disableButton() {
     return this.nameFormControl.valid;
   }
 }

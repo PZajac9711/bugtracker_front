@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,23 @@ export class DataService {
   // tslint:disable-next-line:typedef
   createNewBoard(boardName) {
     return this.http.get(this.urlWithToken + '/createProject?boardName=' + boardName, {observe: 'response'});
+  }
+
+  // tslint:disable-next-line:typedef
+  getAllBoards() {
+    return this.http.get(this.urlWithToken + '/findAllBoards', {observe: 'response'});
+  }
+
+  // tslint:disable-next-line:typedef
+  addNewTask(name, dsc) {
+    return this.http.post(this.urlWithToken + '/addTask', {
+      boardName: name,
+      description: dsc
+    }, {observe: 'response'});
+  }
+
+  // tslint:disable-next-line:typedef
+  getTasks(projectName) {
+    return this.http.get(this.urlWithToken + '/getTasks?boardName=' + projectName, {observe: 'response'});
   }
 }

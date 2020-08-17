@@ -1,5 +1,48 @@
-<section id="board">
-  <div class="board board-container">
-    <p style="color: #FFFFFF">Hello</p>
+<app-navbar></app-navbar>
+<div class="single-board to-do">
+  <div class="top">
+    <div class="name">To Do</div>
+    <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
-</section>
+  <div class="tasks">
+    <div class="task" *ngFor="let item of toDo$">
+      <div class="text">{{item.taskDescription}}</div>
+    </div>
+  </div>
+  <div class="new-task" (click)="createTask()">
+    <p>Add new task</p>
+  </div>
+</div>
+<div class="single-board in-progress">
+  <div class="top">
+    <div class="name">In Progress</div>
+    <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
+  </div>
+  <div class="tasks">
+    <div class="task" *ngFor="let item of inProgress$">
+      <div class="text">{{item.taskDescription}}</div>
+    </div>
+  </div>
+</div>
+<div class="single-board check-me">
+  <div class="top">
+    <div class="name">Check Me</div>
+    <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
+  </div>
+  <div class="tasks">
+    <div class="task" *ngFor="let item of checkMe$">
+      <div class="text">{{item.taskDescription}}</div>
+    </div>
+  </div>
+</div>
+<div class="single-board done">
+  <div class="top">
+    <div class="name">Done</div>
+    <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
+  </div>
+  <div class="tasks">
+    <div class="task" *ngFor="let item of done$">
+      <div class="text">{{item.taskDescription}}</div>
+    </div>
+  </div>
+</div>
