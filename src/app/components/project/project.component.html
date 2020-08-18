@@ -5,11 +5,11 @@
     <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
   <div class="tasks">
-    <div class="task" *ngFor="let item of toDo$">
+    <div class="task" *ngFor="let item of toDo$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo)">
       <div class="text">{{item.taskDescription}}</div>
     </div>
   </div>
-  <div class="new-task" (click)="createTask()">
+  <div class="new-task" (click)="createTask(projectName)">
     <p>Add new task</p>
   </div>
 </div>
@@ -19,7 +19,7 @@
     <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
   <div class="tasks">
-    <div class="task" *ngFor="let item of inProgress$">
+    <div class="task" *ngFor="let item of inProgress$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo)">
       <div class="text">{{item.taskDescription}}</div>
     </div>
   </div>
@@ -37,7 +37,7 @@
 </div>
 <div class="single-board done">
   <div class="top">
-    <div class="name">Done</div>
+    <div class="name">Approved</div>
     <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
   <div class="tasks">

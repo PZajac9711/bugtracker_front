@@ -1,0 +1,15 @@
+<div class="input-board">
+  <form style="width: 100%">
+    <mat-form-field style="width: 100%">
+      <mat-label style="color: #FFFFFF">Task</mat-label>
+      <input [maxLength]="25" matInput [formControl]="nameFormControl" style="color: #FFFFFF">
+      <mat-error style="color: #FFFFFF" *ngIf="nameFormControl.hasError('required')">
+        task is required
+      </mat-error>
+      <mat-error style="color: #FFFFFF" *ngIf="nameFormControl.hasError('minlength')">
+        task is too short
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button [disabled]="!disableButton()" mat-raised-button color="primary" (click)="newTask()">Add task</button>
+</div>

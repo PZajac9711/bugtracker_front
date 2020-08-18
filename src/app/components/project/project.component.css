@@ -57,6 +57,7 @@ html{
 .single-board .new-task:hover{
   opacity: .6;
   color: blue;
+  cursor: pointer;
 }
 .in-progress{
   left: 265px;

@@ -6,8 +6,8 @@ import {observable} from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private url = 'https://bugtrackerexa.herokuapp.com/api/public';
-  private urlWithToken = 'https://bugtrackerexa.herokuapp.com/api/private';
+  private url = 'http://localhost:8080/api/public';
+  private urlWithToken = 'http://localhost:8080/api/private';
 
   constructor(private http: HttpClient) {
   }
@@ -50,5 +50,28 @@ export class DataService {
   // tslint:disable-next-line:typedef
   getTasks(projectName) {
     return this.http.get(this.urlWithToken + '/getTasks?boardName=' + projectName, {observe: 'response'});
+  }
+
+  // tslint:disable-next-line:typedef
+  updateTaskDetails(name, task, taskDetails) {
+    return this.http.post(this.urlWithToken + '/updateTaskDetails', {
+      projectName: name,
+      taskName: task,
+      details: taskDetails
+    }, {observe: 'response'});
+  }
+  // tslint:disable-next-line:typedef
+  assignTaskToMe(name, task) {
+    return this.http.post(this.urlWithToken + '/signToMe', {
+      projectName: name,
+      taskName: task
+    }, {observe: 'response'});
+  }
+  // tslint:disable-next-line:typedef
+  markTaskAsDone(name, task){
+    return this.http.post(this.urlWithToken + '/markAsDone', {
+      projectName: name,
+      taskName: task
+    }, {observe: 'response'});
   }
 }

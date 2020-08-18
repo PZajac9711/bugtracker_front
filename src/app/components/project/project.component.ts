@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
+import {MatDialog} from '@angular/material/dialog';
+import {CreateBoardComponent} from '../create-board/create-board.component';
+import {NewTaskComponent} from '../new-task/new-task.component';
+import {TaskDetailsComponent} from '../task-details/task-details.component';
 
 @Component({
   selector: 'app-project',
@@ -14,7 +18,8 @@ export class ProjectComponent implements OnInit {
   done$: any;
   inProgress$: any;
   checkMe$: any;
-  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService) {
+
+  constructor(private activatedRoute: ActivatedRoute, private dataService: DataService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -25,12 +30,25 @@ export class ProjectComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  createTask() {
-    this.dataService.addNewTask(this.projectName, 'hello').subscribe(response => {
-      console.log(response);
-      window.location.reload();
-    }, error => {
-      console.log(error);
+  createTask(name) {
+    const dialogRef = this.dialog.open(NewTaskComponent, {
+      data: name
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  taskDetails(name, nameProject, details, to) {
+    const dialogRef = this.dialog.open(TaskDetailsComponent, {
+      data: [name, nameProject, details, to],
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        window.location.reload();
+      }
+      console.log(result);
     });
   }
 

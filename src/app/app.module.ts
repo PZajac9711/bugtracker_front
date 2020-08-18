@@ -18,6 +18,9 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {DataService} from './services/data.service';
 import {TokenInterceptor} from './services/token.interceptor';
 import { CreateBoardComponent } from './components/create-board/create-board.component';
+import { RepeatPasswordDirective } from './shared/repeat-password.directive';
+import { NewTaskComponent } from './components/new-task/new-task.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { CreateBoardComponent } from './components/create-board/create-board.com
     ProjectComponent,
     AuthenticationComponent,
     NavbarComponent,
-    CreateBoardComponent
+    CreateBoardComponent,
+    RepeatPasswordDirective,
+    NewTaskComponent,
+    TaskDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,7 @@ import { CreateBoardComponent } from './components/create-board/create-board.com
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [AuthenticationComponent, CreateBoardComponent],
+  entryComponents: [AuthenticationComponent, CreateBoardComponent, NewTaskComponent],
 })
 export class AppModule {
 }

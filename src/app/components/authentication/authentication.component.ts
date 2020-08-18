@@ -1,9 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {ViewEncapsulation} from '@angular/core';
-import {AbstractControl, FormControl, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import {DataService} from '../../services/data.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -91,7 +90,7 @@ export class AuthenticationComponent implements OnInit {
     this.dataService.loginUser(this.loginSignInFormControl.value, this.passwordSignInFormControl.value)
       .subscribe(response => {
         this.response$ = response;
-        if (response.status === 200){
+        if (response.status === 200) {
           localStorage.setItem('token', this.response$.body.token);
           this.dialogRef.close();
           this.route.navigate(['/boards']);
@@ -100,6 +99,7 @@ export class AuthenticationComponent implements OnInit {
         this.error = err.error.debugMessage;
       });
   }
+
   // tslint:disable-next-line:typedef
   switchView() {
     this.alreadyGotAccount = !this.alreadyGotAccount;
@@ -113,5 +113,5 @@ export class AuthenticationComponent implements OnInit {
     this.loginSignInFormControl.reset();
     this.passwordSignInFormControl.reset();
   }
-}
 
+}

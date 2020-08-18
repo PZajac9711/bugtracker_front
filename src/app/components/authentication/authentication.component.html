@@ -38,12 +38,18 @@
           <mat-error *ngIf="passwordFormControl.hasError('required')">
             Password is <strong>required</strong>
           </mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+            Password is <strong>too short</strong>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Re-password</mat-label>
-          <input type="password" matInput [formControl]="rePasswordFormControl">
+          <input appRepeatPassword="{{passwordFormControl.value}}" type="password" matInput [formControl]="rePasswordFormControl">
           <mat-error *ngIf="rePasswordFormControl.hasError('required')">
             Re-password is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="rePasswordFormControl.hasError('notEqual')">
+            Password are not <strong>the same</strong>
           </mat-error>
         </mat-form-field>
         <button [disabled]="formIsValidSubmitButton()" type="submit" mat-raised-button color="primary">Submit</button>
@@ -78,6 +84,9 @@
           <input type="password" matInput [formControl]="passwordSignInFormControl">
           <mat-error *ngIf="passwordSignInFormControl.hasError('required')">
             Password can't be empty
+          </mat-error>
+          <mat-error *ngIf="passwordSignInFormControl.hasError('forbiddenName')">
+            custom
           </mat-error>
         </mat-form-field>
         <button [disabled]="formIsValidLoginButton()" type="submit" mat-raised-button color="primary">Login</button>
