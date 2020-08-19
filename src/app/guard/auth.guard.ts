@@ -12,8 +12,15 @@ export class AuthGuard implements CanActivate {
 
   // tslint:disable-next-line:typedef
   canActivate() {
+    let decodeJwt;
     // tslint:disable-next-line:prefer-const
     if (localStorage.getItem('token') === null) {
+      this.route.navigate(['/']);
+      return false;
+    }
+    decodeJwt = jwt_decode(localStorage.getItem('token'));
+    if (Date.now() >= decodeJwt.exp * 1000) {
+      localStorage.removeItem('token');
       this.route.navigate(['/']);
       return false;
     }

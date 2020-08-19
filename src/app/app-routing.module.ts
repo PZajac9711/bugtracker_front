@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'project/:name',
-    component: ProjectComponent
+    component: ProjectComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'boards',
