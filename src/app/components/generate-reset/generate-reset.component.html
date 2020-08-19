@@ -1,6 +1,5 @@
 <div id="generate-container">
   <div class="generate">
-    <div *ngIf="false">
       <div class="header">
         <h4 style="text-align: center">Enter Email</h4>
         <span style="color: green; font-weight: bold; margin: 10px 0;">{{information}}</span>
@@ -19,11 +18,7 @@
           </mat-form-field>
           <button [disabled]="!disableReset()" type="submit" mat-raised-button color="primary" style="margin-top: 15px" (click)="sendMail()">Reset</button>
         </form>
+        <button mat-raised-button color="primary" style="margin-top: 15px" (click)="home()">Home Page</button>
     </div>
-
-    </div>
-    <h3>Sorry, google block it(trying to fix it)</h3>
-    <h4>It works locally</h4>
-    <button mat-raised-button color="primary" style="margin-top: 15px" (click)="home()">Home Page</button>
   </div>
 </div>
