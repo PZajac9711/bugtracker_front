@@ -6,8 +6,8 @@ import {observable} from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private url = 'http://localhost:8080/api/public';
-  private urlWithToken = 'http://localhost:8080/api/private';
+  private url = 'https://bugtrackerexa.herokuapp.com/api/public';
+  private urlWithToken = 'https://bugtrackerexa.herokuapp.com/api/private';
 
   constructor(private http: HttpClient) {
   }
