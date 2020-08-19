@@ -1,0 +1,24 @@
+<div id="generate-container">
+  <div class="generate">
+    <div class="header">
+      <h4 style="text-align: center">Enter Email</h4>
+      <span style="color: green; font-weight: bold; margin: 10px 0;">{{information}}</span>
+    </div>
+    <div class="main">
+      <form>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [formControl]="emailFormControl">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button [disabled]="!disableReset()" type="submit" mat-raised-button color="primary" style="margin-top: 15px" (click)="sendMail()">Reset</button>
+      </form>
+      <button mat-raised-button color="primary" style="margin-top: 15px" (click)="home()">Home Page</button>
+    </div>
+  </div>
+</div>

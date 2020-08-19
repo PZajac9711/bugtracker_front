@@ -4,6 +4,8 @@ import {MainComponent} from './components/main/main.component';
 import {ProjectComponent} from './components/project/project.component';
 import {BoardComponent} from './components/board/board.component';
 import {AuthGuard} from './guard/auth.guard';
+import {ResetComponent} from './components/reset/reset.component';
+import {GenerateResetComponent} from './components/generate-reset/generate-reset.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
     path: 'boards',
     component: BoardComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'reset/:token',
+    component: ResetComponent
+  },
+  {
+    path: 'generate',
+    component: GenerateResetComponent
   }
 ];
 

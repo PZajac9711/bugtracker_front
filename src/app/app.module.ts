@@ -23,6 +23,8 @@ import { NewTaskComponent } from './components/new-task/new-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { SignToComponent } from './components/sign-to/sign-to.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { ResetComponent } from './components/reset/reset.component';
+import { GenerateResetComponent } from './components/generate-reset/generate-reset.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     TaskDetailsComponent,
     SignToComponent,
     SettingsComponent,
+    ResetComponent,
+    GenerateResetComponent,
   ],
   imports: [
     BrowserModule,

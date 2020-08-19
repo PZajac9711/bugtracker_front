@@ -114,4 +114,9 @@ export class AuthenticationComponent implements OnInit {
     this.passwordSignInFormControl.reset();
   }
 
+  // tslint:disable-next-line:typedef
+  reset(){
+    this.route.navigate(['/generate']);
+    this.dialogRef.close();
+  }
 }

@@ -60,6 +60,7 @@ export class DataService {
       details: taskDetails
     }, {observe: 'response'});
   }
+
   // tslint:disable-next-line:typedef
   assignTaskToMe(name, task) {
     return this.http.post(this.urlWithToken + '/signToMe', {
@@ -67,21 +68,24 @@ export class DataService {
       taskName: task
     }, {observe: 'response'});
   }
+
   // tslint:disable-next-line:typedef
-  markTaskAsDone(name, task){
+  markTaskAsDone(name, task) {
     return this.http.post(this.urlWithToken + '/markAsDone', {
       projectName: name,
       taskName: task
     }, {observe: 'response'});
   }
+
   // tslint:disable-next-line:typedef
-  approveTask(name, task, decision){
+  approveTask(name, task, decision) {
     return this.http.post(this.urlWithToken + '/approve', {
       projectName: name,
       taskName: task,
       approved: decision
     }, {observe: 'response'});
   }
+
   // tslint:disable-next-line:typedef
   assignTaskTo(name, task, toUserName) {
     return this.http.post(this.urlWithToken + '/assignTaskTo?toUserName=' + toUserName, {
@@ -89,11 +93,24 @@ export class DataService {
       taskName: task
     }, {observe: 'response'});
   }
+
   // tslint:disable-next-line:typedef
   addUser(login, name) {
     return this.http.post(this.urlWithToken + '/addUser', {
       userName: login,
       projectName: name
     }, {observe: 'response'});
+  }
+
+  // tslint:disable-next-line:typedef
+  resetPassword(tokenInsert, passwordInsert) {
+    return this.http.post(this.url + '/resetPassword', {
+      token: tokenInsert,
+      password: passwordInsert
+    }, {observe: 'response'});
+  }
+  // tslint:disable-next-line:typedef
+  sendEmail(email){
+    return this.http.get(this.url + '/generateResetPasswordMail?email=' + email);
   }
 }
