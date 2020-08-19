@@ -31,9 +31,11 @@ export class SettingsComponent implements OnInit {
       if (response.status === 200) {
         this.success = 'User added to board';
         this.nameFormControl.reset();
+        this.error = '';
       }
     }, err => {
       this.error = err.error.debugMessage;
+      this.success = '';
     });
   }
 }
