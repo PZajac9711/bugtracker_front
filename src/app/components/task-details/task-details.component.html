@@ -1,4 +1,5 @@
 <div id="task-details">
+  <span style="text-align: center; font-weight: bold; color: red">{{error}}</span>
   <div class="top">
     <div class="top-left">
       <div class="img"><img src="https://img.icons8.com/windows/32/000000/title.png"/></div>
@@ -43,11 +44,11 @@
       <div class="all-comments">
         <div class="single-comment">
           <div class="added-by">UserName</div>
-          <p>Hello its a fucking long comments take </p>
+          <p>Comments are not implemented yet(working on it)</p>
         </div>
         <div class="single-comment">
           <div class="added-by">UserName</div>
-          <p>Hello its a fucking long comments take </p>
+          <p>Comments are not implemented yet(working on it)</p>
         </div>
       </div>
     </div>
@@ -57,14 +58,20 @@
         <button (click)="assignTaskToMe()">Sign To Me</button>
       </div>
       <div class="sign-to button-right" *ngIf="data[3] === null">
-        <a type="button">Sign To</a>
+        <button (click)="assignPopup()">Assign To</button>
       </div>
-      <div class="mark-as-done button-right" *ngIf="data[3] !== null">
+      <div class="mark-as-done button-right" *ngIf="data[3] !== null && data[4] === false">
         <button [disabled]="!canMarkAsDone" (click)="markAsDone()">Mark as done</button>
       </div>
+      <div class="mark-as-done button-right" *ngIf="data[4] === true">
+        <button (click)="approve(true)">Approve</button>
+      </div>
+      <div class="mark-as-done button-right" *ngIf="data[4] === true">
+        <button (click)="approve(false)">Reject</button>
+      </div>
       <div class="title" style="margin-top: 5px;" *ngIf="data[3] !== null">Information</div>
-      <div class="information-single button-right" style="text-align: center" *ngIf="data[3] !== null">
-        Made by: {{data[3]}}
+      <div class="information-single button-right" style="text-align: left" *ngIf="data[3] !== null">
+        Assigned To: {{data[3]}}
       </div>
     </div>
   </div>

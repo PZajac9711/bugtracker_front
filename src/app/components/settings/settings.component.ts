@@ -1,42 +1,39 @@
 import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {DataService} from '../../services/data.service';
 import {CreateBoardComponent} from '../create-board/create-board.component';
+import {DataService} from '../../services/data.service';
 import {FormControl, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-new-task',
-  templateUrl: './new-task.component.html',
-  styleUrls: ['./new-task.component.css'],
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NewTaskComponent implements OnInit {
+export class SettingsComponent implements OnInit {
   error;
+  success;
   nameFormControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3)
   ]);
+
   constructor(public dialogRef: MatDialogRef<CreateBoardComponent>, private dataService: DataService,
-              @Inject(MAT_DIALOG_DATA) public name: string) {
+              @Inject(MAT_DIALOG_DATA) public data) {
   }
 
   ngOnInit(): void {
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   // tslint:disable-next-line:typedef
-  newTask() {
-    this.dataService.addNewTask(this.name, this.nameFormControl.value).subscribe(response => {
-      window.location.reload();
+  addUser() {
+    this.dataService.addUser(this.nameFormControl.value, this.data).subscribe(response => {
+      if (response.status === 200) {
+        this.success = 'User added to board';
+        this.nameFormControl.reset();
+      }
     }, err => {
       this.error = err.error.debugMessage;
     });
-  }
-  // tslint:disable-next-line:typedef
-  disableButton() {
-    return this.nameFormControl.valid;
   }
 }

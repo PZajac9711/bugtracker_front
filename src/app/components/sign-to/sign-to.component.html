@@ -1,0 +1,16 @@
+<div class="sign-to-dialog">
+  <p style="color: red; text-align: center">{{error}}</p>
+  <form style="width: 100%">
+    <mat-form-field style="width: 100%">
+      <mat-label style="color: black">User Name</mat-label>
+      <input [maxLength]="25" matInput [formControl]="nameFormControl" style="color: black">
+      <mat-error style="color: black" *ngIf="nameFormControl.hasError('required')">
+        Login is required
+      </mat-error>
+      <mat-error style="color: black" *ngIf="nameFormControl.hasError('minlength')">
+        Login is too short
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button  (click)="assignTo()" mat-raised-button color="primary" style="margin-top: 5px">Assign</button>
+</div>

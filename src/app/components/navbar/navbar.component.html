@@ -5,7 +5,7 @@
   <div class="center"><h4>BugTracker</h4></div>
   <div class="right">
     <ul>
-      <li><a type="button">Setting</a></li>
+      <li *ngIf="disableOptions()"><button (click)="projectOptions()">Setting</button></li>
       <li><a type="button" (click)="logOut()">Logout</a></li>
     </ul>
   </div>

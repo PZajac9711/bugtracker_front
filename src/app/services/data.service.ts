@@ -74,4 +74,26 @@ export class DataService {
       taskName: task
     }, {observe: 'response'});
   }
+  // tslint:disable-next-line:typedef
+  approveTask(name, task, decision){
+    return this.http.post(this.urlWithToken + '/approve', {
+      projectName: name,
+      taskName: task,
+      approved: decision
+    }, {observe: 'response'});
+  }
+  // tslint:disable-next-line:typedef
+  assignTaskTo(name, task, toUserName) {
+    return this.http.post(this.urlWithToken + '/assignTaskTo?toUserName=' + toUserName, {
+      projectName: name,
+      taskName: task
+    }, {observe: 'response'});
+  }
+  // tslint:disable-next-line:typedef
+  addUser(login, name) {
+    return this.http.post(this.urlWithToken + '/addUser', {
+      userName: login,
+      projectName: name
+    }, {observe: 'response'});
+  }
 }

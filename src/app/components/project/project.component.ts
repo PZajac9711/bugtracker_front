@@ -40,9 +40,9 @@ export class ProjectComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  taskDetails(name, nameProject, details, to) {
+  taskDetails(name, nameProject, details, to, done) {
     const dialogRef = this.dialog.open(TaskDetailsComponent, {
-      data: [name, nameProject, details, to],
+      data: [name, nameProject, details, to, done],
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === true) {
@@ -51,7 +51,6 @@ export class ProjectComponent implements OnInit {
       console.log(result);
     });
   }
-
   // tslint:disable-next-line:typedef
   getTasks() {
     this.dataService.getTasks(this.projectName).subscribe(response => {

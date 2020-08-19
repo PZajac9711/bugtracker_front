@@ -21,6 +21,8 @@ import { CreateBoardComponent } from './components/create-board/create-board.com
 import { RepeatPasswordDirective } from './shared/repeat-password.directive';
 import { NewTaskComponent } from './components/new-task/new-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { SignToComponent } from './components/sign-to/sign-to.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
     RepeatPasswordDirective,
     NewTaskComponent,
     TaskDetailsComponent,
+    SignToComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
     multi: true
   }],
   bootstrap: [AppComponent],
-  entryComponents: [AuthenticationComponent, CreateBoardComponent, NewTaskComponent],
+  entryComponents: [AuthenticationComponent, CreateBoardComponent, NewTaskComponent, SignToComponent, SettingsComponent],
 })
 export class AppModule {
 }

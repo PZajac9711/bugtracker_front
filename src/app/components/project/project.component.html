@@ -1,11 +1,11 @@
-<app-navbar></app-navbar>
+<app-navbar [projectName]="projectName"></app-navbar>
 <div class="single-board to-do">
   <div class="top">
     <div class="name">To Do</div>
     <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
   <div class="tasks">
-    <div class="task" *ngFor="let item of toDo$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo)">
+    <div class="task" *ngFor="let item of toDo$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo,item.done)">
       <div class="text">{{item.taskDescription}}</div>
     </div>
   </div>
@@ -19,7 +19,7 @@
     <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
   <div class="tasks">
-    <div class="task" *ngFor="let item of inProgress$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo)">
+    <div class="task" *ngFor="let item of inProgress$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo,item.done)">
       <div class="text">{{item.taskDescription}}</div>
     </div>
   </div>
@@ -30,7 +30,7 @@
     <div class="img"><img src="https://img.icons8.com/material/24/000000/circled-menu.png"/></div>
   </div>
   <div class="tasks">
-    <div class="task" *ngFor="let item of checkMe$">
+    <div class="task" *ngFor="let item of checkMe$" (click)="taskDetails(item.taskDescription,projectName,item.taskDetails,item.assignTo,item.done)">
       <div class="text">{{item.taskDescription}}</div>
     </div>
   </div>

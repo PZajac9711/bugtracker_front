@@ -1,0 +1,34 @@
+<div id="setting">
+  <div class="invite-main">
+    <div class="invite-top">
+      <h4>Invite friend</h4>
+    </div>
+    <div class="invite-main">
+      <span style="color: red">{{error}}</span>
+      <span style="color: green">{{success}}</span>
+      <div class="inv">
+        <form style="width: 80%">
+          <mat-form-field style="width: 80%">
+            <mat-label style="color: black; font-size: 12px">User Name</mat-label>
+            <input [maxLength]="20" matInput [formControl]="nameFormControl" style="color: black;">
+            <mat-error style="color: black" *ngIf="nameFormControl.hasError('required')">
+              Login is required
+            </mat-error>
+            <mat-error style="color: black" *ngIf="nameFormControl.hasError('minlength')">
+              Login is too short
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <button (click)="addUser()" mat-raised-button color="primary" style="margin-top: 5px">Add</button>
+      </div>
+    </div>
+  </div>
+  <div class="list-of-all-user">
+    <div class="all-users-top">
+      <h4>List of users</h4>
+    </div>
+    <div class="all-users-main">
+      tutaj bedzie tabela z wszystkimi uzytkownikami
+    </div>
+  </div>
+</div>
