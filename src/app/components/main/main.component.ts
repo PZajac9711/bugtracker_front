@@ -17,12 +17,12 @@ export class MainComponent implements OnInit {
     if (localStorage.getItem('token') !== null) {
       this.route.navigate(['/boards']);
     }
-    this.data.start().subscribe(response => {
-      console.log(response.status);
-    });
   }
 
   constructor(public dialog: MatDialog, private route: Router, private data: DataService) {
+    this.data.start().toPromise().then(result => {
+      console.log(result.status);
+    });
   }
 
   openDialog(gotAccount): void {
