@@ -109,8 +109,14 @@ export class DataService {
       password: passwordInsert
     }, {observe: 'response'});
   }
+
   // tslint:disable-next-line:typedef
-  sendEmail(email){
+  sendEmail(email) {
     return this.http.get(this.url + '/generateResetPasswordMail?email=' + email);
+  }
+
+  // tslint:disable-next-line:typedef
+  start() {
+    return this.http.get(this.url + '/start', {observe: 'response'});
   }
 }

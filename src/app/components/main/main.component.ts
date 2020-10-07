@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {BoardComponent} from '../board/board.component';
 import {AuthenticationComponent} from '../authentication/authentication.component';
 import {Router} from '@angular/router';
+import {DataService} from '../../services/data.service';
 
 
 @Component({
@@ -11,14 +12,17 @@ import {Router} from '@angular/router';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  response$: any;
   ngOnInit(): void {
     if (localStorage.getItem('token') !== null) {
       this.route.navigate(['/boards']);
     }
+    this.data.start().subscribe(response => {
+      console.log(response.status);
+    });
   }
 
-  constructor(public dialog: MatDialog, private route: Router) {
+  constructor(public dialog: MatDialog, private route: Router, private data: DataService) {
   }
 
   openDialog(gotAccount): void {
