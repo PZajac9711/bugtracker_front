@@ -45,9 +45,9 @@ export class ResetComponent implements OnInit {
           this.route.navigate(['/']);
         }, 5000);
       }
-      console.log(response);
+      // console.log(response);
     }, error => {
-      console.log(error);
+      // console.log(error);
     });
   }
 }

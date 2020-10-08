@@ -35,7 +35,7 @@ export class ProjectComponent implements OnInit {
       data: name
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      // logger on development side
     });
   }
 
@@ -48,7 +48,7 @@ export class ProjectComponent implements OnInit {
       if (result === true) {
         window.location.reload();
       }
-      console.log(result);
+      // console.log(result);
     });
   }
   // tslint:disable-next-line:typedef
@@ -59,9 +59,9 @@ export class ProjectComponent implements OnInit {
       this.done$ = this.response$.done;
       this.inProgress$ = this.response$.inProgress;
       this.checkMe$ = this.response$.checkMe;
-      console.log(this.response$);
+      // console.log(this.response$);
     }, error => {
-      console.log(error);
+      // console.log(error);
     });
   }
 }

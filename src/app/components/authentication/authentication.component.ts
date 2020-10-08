@@ -79,7 +79,7 @@ export class AuthenticationComponent implements OnInit {
     this.dataService.registerUser(this.loginFormControl.value, this.passwordFormControl.value, this.emailFormControl.value)
       .subscribe(response => {
         this.alreadyGotAccount = true;
-        this.afterRegistration = 'Account created, confirm you account';
+        this.afterRegistration = 'Account created';
       }, err => {
         this.error = err.error.debugMessage;
       });

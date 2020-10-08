@@ -34,7 +34,7 @@ export class CreateBoardComponent implements OnInit {
     this.dataService.createNewBoard(this.nameFormControl.value).subscribe(response => {
       this.route.navigate(['/project', this.nameFormControl.value]);
       this.dialogRef.close();
-      console.log(response);
+      // console.log(response);
     }, err => {
       this.error = err.error.debugMessage;
     });

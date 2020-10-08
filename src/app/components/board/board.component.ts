@@ -20,10 +20,10 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getAllBoards().subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.boardList$ = response.body;
     }, err => {
-      console.log('error' + err);
+      // console.log('error' + err);
     });
   }
 
@@ -33,7 +33,7 @@ export class BoardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      // console.log(result);
     });
   }
 

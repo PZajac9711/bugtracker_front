@@ -180,6 +180,7 @@ img{
   align-items: center;
 }
 #offer .offer-bot .offer-item{
+  height: 330px;
   color: white;
   flex-basis: 80%;
   display: flex;

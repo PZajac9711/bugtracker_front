@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.projectName);
+    // console.log(this.projectName);
   }
 
   // tslint:disable-next-line:typedef
@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
       data: this.projectName
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      // console.log(result);
     });
   }
 }

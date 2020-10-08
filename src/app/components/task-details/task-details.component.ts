@@ -35,10 +35,10 @@ export class TaskDetailsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   updateDetails() {
     this.dataService.updateTaskDetails(this.data[1], this.data[0], this.details).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.needReload = true;
     }, error => {
-      console.log(error);
+      // console.log(error);
     });
   }
 
@@ -50,11 +50,11 @@ export class TaskDetailsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   assignTaskToMe() {
     this.dataService.assignTaskToMe(this.data[1], this.data[0]).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.needReload = true;
       this.closeDialog();
     }, error => {
-      console.log(error);
+      // console.log(error);
     });
   }
 
@@ -71,7 +71,7 @@ export class TaskDetailsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   approve(decision) {
     this.dataService.approveTask(this.data[1], this.data[0], decision).subscribe(response => {
-      console.log(response);
+      // console.log(response);
       this.needReload = true;
       this.closeDialog();
     }, err => {

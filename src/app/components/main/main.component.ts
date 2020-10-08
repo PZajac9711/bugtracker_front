@@ -13,15 +13,21 @@ import {DataService} from '../../services/data.service';
 })
 export class MainComponent implements OnInit {
   response$: any;
+
   ngOnInit(): void {
     if (localStorage.getItem('token') !== null) {
       this.route.navigate(['/boards']);
+    }
+    if (localStorage.getItem('first') === null) {
+      confirm('Note: strona klienta jest rozdzielona z logiką biznesową przez co logowanie za pierwszym razem może trwać około 30 sekund(czas może ulec zmianie)' +
+        ' jest to spowodowane specyfikacją heroku, gdyż przez brak aktywności serwer zostaje postawiony w stan uśpienia. Proszę mieć to na uwadze.');
+      localStorage.setItem('first', 'true');
     }
   }
 
   constructor(public dialog: MatDialog, private route: Router, private data: DataService) {
     this.data.start().toPromise().then(result => {
-      console.log(result.status);
+      // logger on development side
     });
   }
 
@@ -31,7 +37,7 @@ export class MainComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      // logger on development side
     });
   }
 }
